@@ -1,0 +1,14 @@
+[
+  {
+    "title": "Why is MVC important?",
+    "content": "Models, Views and Controllers are distinctly different pieces of code that helps to provide different functions to your overall project."
+  },
+  {
+    "title": "What is OOP ?",
+    "content": "is a programming paradigm based on the concept of objects."
+  },
+  {
+    "title": "What is Javascript",
+    "content": "JavaScript is a scripting or programming language that allows you to implement complex features on web pages."
+  }
+]
