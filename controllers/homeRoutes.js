@@ -53,7 +53,7 @@ router.get('/post', withAuth, async (req, res) => {
     });
     //user data
     const user = userData.get({ plain: true });
-    res.render('post', {
+    res.render('dashboard', {
       ...user,
       logged_in: true
     });
