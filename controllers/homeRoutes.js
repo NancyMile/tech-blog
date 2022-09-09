@@ -4,7 +4,7 @@ const withAuth = require('../utils/auth');
 router.get('/', async (req, res) => {
   try {
     // posts and users
-    const postData = await Project.findAll({
+    const postData = await Post.findAll({
       include: [
         {
           model: User,
@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
     // posts data for the template
     const posts = postData.map((post) => post.get({ plain: true }));
     // session data
-    res.render('home', { 
+    res.render('homepage', {
       posts, 
       logged_in: req.session.logged_in 
     });
