@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Blog</title>
+    <link rel="stylesheet" href="/css/jass.css">
+    <link rel="stylesheet" href="/css/style.css">
+  </head>
+  <body>
+    <div class="flex-column justify-space-around p-4 bg-dark">
+      <nav class="nav">
+        <a class="nav-link p-4 text-white" href="#">Home</a>
+        <a class="nav-link p-4 text-white" href="#">Dasboard</a>
+          <!-- Login or logout links -->
+        {{#if logged_in}}
+        <a href="/blog">Dashboard</a>
+          <button class="no-button p-4 text-white" id="logout">Logout</button>
+        {{else}}
+          <a  class= "text-white" href="/login">Login</a>
+        {{/if}}
+      </nav>
+    </div>
+    <header>
+      <div class="justify-content-center p-4 bg-dark">
+        <h1 class="text-center"><a href="/"> <button class="p-4 ">The Tech Blog</button></a></h1>
+      </div>  
+    </header>
+      <main class="container container-fluid mt-5">
+        <!-- Render layout -->
+        {{{ body }}}
+      </main>
+    <footer>
+      <div class="text-center p-4 bg-dark">
+        <span class="text-white">All rights reserved.</span>
+      </div>
+    </footer>
+    </div>
+    <!-- Script for logged in -->
+    {{#if logged_in}}
+    <script src="/js/logout.js"></script>
+    {{/if}}
+  </body>
+</html>
