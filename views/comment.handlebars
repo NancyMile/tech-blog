@@ -1,0 +1,40 @@
+<div class="card">
+  <div class="card-body m-t-5 p-4">
+    <div class="row">
+      <h3>Post</h3>
+      <form>
+        <div class="form-group">
+          <label for="post-title">Title:</label>
+          <input class="form-input" type="text" id="post-title" name="post-title" value="{{title}}"  readonly/>
+        </div>
+        <div class="form-group">
+          <label for="post-content">Content:</label>
+          <textarea class="form-input" id="post-content" name="post-content" readonly> {{content}} </textarea>
+        </div>
+         {{!-- list comments --}}
+    {{#if comments.length}}
+    <div class="col-md-8 post-list">
+      <h3>Comments</h3>
+      {{#each comments as |comment|}}
+      <div class="row">
+        <div class="form-group m-t-5 p-4">
+          <button class="btn btn-primary btn-lg btn-block"><a href="/post/{{comment.id}}">{{comment.content}}</a></button>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+    {{/if}}
+      </form>
+      <div class="form-group">
+        <form class="form new-comment-form">
+          <div class="form-group">
+            <input type="hidden" name="post_id" id="post-id" value="{{id}}">
+            <button type="submit" class="btn btn-primary btn-lg btn-block">Add Comment</button>
+            <textarea class="col-12 m-t-5 p-4" id="post-comment"></textarea>
+            <button type="submit" class="btn btn-primary btn-lg btn-block">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+ </div>
+<script src="../js/comment.js"></script>
