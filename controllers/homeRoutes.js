@@ -89,6 +89,27 @@ router.get('/login', (req, res) => {
   }
   res.render('login');
 });
+//comment
+//create post form
+router.get('/comment/:id', async (req, res) => {
+  try {
+    const postData = await Post.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+      ],
+    });
+    const post = postData.get({ plain: true });
+    res.render('comment', {
+      ...post,
+      logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 //signup
 router.get('/signup', (req, res) => {
