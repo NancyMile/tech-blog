@@ -61,6 +61,25 @@ router.get('/post', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
+//create post form
+router.get('/createpost', withAuth, async (req, res) => {
+  try {
+    // Logged in user based on session id
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ['password'] },
+      include: [{ model: Post }],
+    });
+    //user data
+    const user = userData.get({ plain: true });
+    res.render('createpost', {
+      ...user,
+      logged_in: true
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 //login
 router.get('/login', (req, res) => {
   // Redirect to another route
