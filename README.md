@@ -43,7 +43,7 @@ THEN you will be able to view comments but I am prompted to log in again before 
 
 The following animation demonstrates the application functionality:
 
-![Animation cycles through signing into the app, clicking on buttons, and updating blog posts.]() 
+![Animation cycles through signing into the app, clicking on buttons, and updating blog posts.](./assets/tech-blog.png)
 
 
 ---
